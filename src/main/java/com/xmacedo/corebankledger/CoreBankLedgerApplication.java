@@ -1,6 +1,7 @@
 package com.xmacedo.corebankledger;
 
 import com.xmacedo.corebankledger.service.AccountService;
+import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Scanner;
 
@@ -44,7 +45,7 @@ public class CoreBankLedgerApplication {
     }
 
     private void startAccountCreation(){
-        accountService.createAccount("123.456.789-00", "John Doe",)
+        accountService.createAccount("123.456.789-00", "John Doe",true, BigDecimal.ZERO);
     }
 
 }
