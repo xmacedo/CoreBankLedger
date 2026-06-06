@@ -1,8 +1,11 @@
 package com.xmacedo.corebankledger;
 
+import com.xmacedo.corebankledger.service.AccountService;
+import java.util.Currency;
 import java.util.Scanner;
 
 public class CoreBankLedgerApplication {
+    private final AccountService accountService = new AccountService();
 
     static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -38,6 +41,10 @@ public class CoreBankLedgerApplication {
         System.out.println("5. Exit");
         System.out.print("Choose your choice: ");
 
+    }
+
+    private void startAccountCreation(){
+        accountService.createAccount("123.456.789-00", "John Doe",)
     }
 
 }
