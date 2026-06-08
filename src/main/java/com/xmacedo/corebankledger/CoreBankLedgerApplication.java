@@ -17,7 +17,8 @@ public class CoreBankLedgerApplication {
             String input = scanner.nextLine();
             switch (input) {
                 case "1":
-                    System.out.println("Create account");
+                    System.out.println("1 - Create account");
+                    createAccountInput();
                     break;
                 case "2":
                     System.out.println("Deposit");
@@ -32,6 +33,13 @@ public class CoreBankLedgerApplication {
         scanner.close();
     }
 
+    private static void createAccountInput() {
+        //todo questions to create account
+
+
+        accountService.createAccount("123.456.789-00", "John Doe",true, BigDecimal.ZERO);
+    }
+
     private static void printMenu() {
         System.out.println();
         System.out.println("Core Bank Ledger");
@@ -41,8 +49,8 @@ public class CoreBankLedgerApplication {
         System.out.println("4. View funds");
         System.out.println("5. Exit");
         System.out.print("Choose your choice: ");
-
     }
+
 
     private static void startAccountCreation(){
         accountService.createAccount("123.456.789-00", "John Doe",true, BigDecimal.ZERO);
