@@ -36,4 +36,8 @@ public class AccountService {
                         .equals(documentId));
 
     }
+
+    public List<Account> getAccounts(){
+        return accounts;
+    }
 }

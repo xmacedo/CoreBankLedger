@@ -53,5 +53,7 @@ public class Account {
         return statusAccount;
     }
 
-
+    public String getName() {
+        return name;
+    }
 }

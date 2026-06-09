@@ -1,7 +1,9 @@
 package com.xmacedo.corebankledger;
 
+import com.xmacedo.corebankledger.model.Account;
 import com.xmacedo.corebankledger.service.AccountService;
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Scanner;
 
 public class CoreBankLedgerApplication {
@@ -19,23 +21,44 @@ public class CoreBankLedgerApplication {
                 case "1":
                     System.out.println("1 - Create account");
                     createAccountInput(scanner);
+                    scanner.nextLine();
                     break;
                 case "2":
-                    System.out.println("Deposit");
+                    System.out.println("2 - List accounts");
+                    listAccounts();
+                    scanner.nextLine();
                     break;
                 case "3":
                     System.out.println("Transfer");
                     break;
                 case "4":
+                    System.out.println("View funds");
+                    break;
+                default:
+                    running = false;
+                    break;
             }
         }
 
         scanner.close();
     }
 
-    private static void createAccountInput(Scanner scanner) {
-        //todo questions to create account
+    private static void listAccounts() {
+        List<Account> accounts = accountService.getAccounts();
+        System.out.println("Number of accounts: "+ accounts.size());
+        System.out.println("");
+        accounts.forEach(account -> {
+            System.out.println("------------");
+            System.out.println("ID      : "+ account.getId());
+            System.out.println("Document: "+ account.getDocumentId());
+            System.out.println("Name    : "+ account.getName());
+            System.out.println("------------");
+            System.out.println("");
+        });
+        System.out.println("End of accounts list.");
+    }
 
+    private static void createAccountInput(Scanner scanner) {
         System.out.println("Enter document id: ");
         String documentId = scanner.nextLine();
         System.out.println("Enter account name: ");
@@ -50,10 +73,11 @@ public class CoreBankLedgerApplication {
         System.out.println();
         System.out.println("Core Bank Ledger");
         System.out.println("1. Create account");
-        System.out.println("2. Deposit");
-        System.out.println("3. Transfer");
-        System.out.println("4. View funds");
-        System.out.println("5. Exit");
+        System.out.println("2. List accounts");
+        System.out.println("3. Deposit");
+        System.out.println("4. Transfer");
+        System.out.println("5. View funds");
+        System.out.println("0. Exit");
         System.out.print("Choose your choice: ");
     }
 
