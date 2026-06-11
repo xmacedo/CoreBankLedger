@@ -26,7 +26,7 @@ public class AccountService {
             //raise exception
         }
 
-        Account account = new Account(UUID.randomUUID(), documentId, name, currency, allowNegativeBalance, limit);
+        Account account = new Account(UUID.randomUUID(), getAccounts().size() + 1, documentId, name, currency, allowNegativeBalance, limit);
         accounts.add(account);
     }
 
@@ -37,13 +37,13 @@ public class AccountService {
 
     }
 
-    public List<Account> getAccounts(){
+    public List<Account> getAccounts() {
         return accounts;
     }
 
-    public Account getAccount(UUID id){
+    public Account getAccountByNumber(Integer accountNumber) {
         return accounts.stream()
-                .filter(account -> account.getId().equals(id))
+                .filter(account -> account.getAccountNumber().equals(accountNumber))
                 .findFirst()
                 .orElse(null);
     }

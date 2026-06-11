@@ -6,6 +6,7 @@ import java.util.UUID;
 
 public class Account {
     private final UUID id;
+    private final Integer accountNumber;
     private final String documentId;
     private final String name;
     private final Currency currency;
@@ -14,8 +15,9 @@ public class Account {
     private final BigDecimal limit;
     private final BigDecimal balance;
 
-    public Account(UUID id, String documentId, String name, Currency currency, boolean allowNegativeBalance, BigDecimal limit) {
+    public Account(UUID id, Integer accountNumber, String documentId, String name, Currency currency, boolean allowNegativeBalance, BigDecimal limit) {
         this.id = id;
+        this.accountNumber = accountNumber;
         this.documentId = documentId;
         this.name = name;
         this.currency = currency;
@@ -55,5 +57,9 @@ public class Account {
 
     public String getName() {
         return name;
+    }
+
+    public Integer getAccountNumber() {
+        return accountNumber;
     }
 }
