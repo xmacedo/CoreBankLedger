@@ -42,6 +42,11 @@ public class CoreBankLedgerApplication {
 
         scanner.close();
     }
+    //todo
+    //find account by name
+    //get account by id
+    //get account by document id
+    //
 
     private static void listAccounts() {
         List<Account> accounts = accountService.getAccounts();

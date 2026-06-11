@@ -40,4 +40,11 @@ public class AccountService {
     public List<Account> getAccounts(){
         return accounts;
     }
+
+    public Account getAccount(UUID id){
+        return accounts.stream()
+                .filter(account -> account.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
 }
